@@ -324,9 +324,7 @@ let objPeça = function () {
     this.tipo = 0;
 
     this.fila = function () {
-        if (filafeta) {
-            puntos += 100;
-        }
+    
 
         let filafeta = false;
         for (let py = 4; py < altTaulell; py++) {
