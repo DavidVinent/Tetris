@@ -324,17 +324,15 @@ let objPeça = function () {
     this.tipo = 0;
 
     this.fila = function () {
-    
-
-        let filafeta = false;
+     let filafeta = false;
         for (let py = 4; py < altTaulell; py++) {
             filafeta = true;
-            for (let px = 1; px <= ampleTaulell; px++) {
+            for (let px = 1; px <= ampleTaulell; px++) 
                 if (taulell[py][px] == 0) {
                     filafeta = false;
 
                 }
-            }
+            
 
             if (filafeta) {
                 for (let moverfila = py; moverfila > 0; moverfila--) {
