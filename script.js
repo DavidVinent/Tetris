@@ -241,7 +241,7 @@ let peçagrafic = [
      ]
 
 
-]
+
   const COLORS = {
     1: '#ff6eb4',  // S — hot pink
     2: '#ffc94d',  // O — dorado disco
