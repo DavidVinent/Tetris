@@ -517,6 +517,15 @@ function inicia() {
     canvas.style.width = amplecanvas;
     canvas.style.height = altcanvas;
 
+    let canço = new Audio("audio.mp3")
+    document.getElementById("musica").addEventListener ("click", function () {
+        if(canço.paused){
+            canço.play();
+        }else{
+            canço.pause()
+        }
+    })
+
 
     peça = new objPeça();
 
@@ -536,9 +545,7 @@ function principal() {
     dibuixaTaulell();
     peça.caer();
     peça.dibuixa();
-
-
-    dibuixaPunts();
+    dibuixaPuntuacio();
 
 
 }
