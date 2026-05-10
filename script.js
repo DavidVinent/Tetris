@@ -313,9 +313,10 @@ function dibuixaTaulell() {
 
 }
 function dibuixaPuntuacio(){
-    ctxfillStyle = '#000000';
+    ctx.fillStyle = '#000000';
     ctx.font = '20px Arial';
     ctx.fillText('Punts: ' + punts, 10, 20);
+}
     
 
 let objPeça = function () {
@@ -338,6 +339,7 @@ let objPeça = function () {
             
 
             if (filafeta) {
+                punts += 10;
                 for (let moverfila = py; moverfila > 0; moverfila--) {
                     for (let px = 1; px <= ampleTaulell; px++) {
                         taulell[moverfila][px] = 0;
@@ -519,6 +521,7 @@ function inicia() {
 
     let canço = new Audio("audio.mp3")
     document.getElementById("musica").addEventListener ("click", function () {
+        canço.loop = true
         if(canço.paused){
             canço.play();
         }else{
@@ -528,10 +531,7 @@ function inicia() {
 
 
     peça = new objPeça();
-
     inicialitzarTeclat()
-
-
     setInterval(function () {
         principal()
     }, 1000 / FPS);
@@ -547,15 +547,9 @@ function principal() {
     peça.dibuixa();
     dibuixaPuntuacio();
 
-
 }
-
 
 function borrarCanvas() {
     canvas.width = amplecanvas;
     canvas.height = altcanvas;
 }
-
-
-
-
