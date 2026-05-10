@@ -42,7 +42,7 @@ let taulell = [
 
 
 let peçagrafic = [
-    [
+    
     [ 
         
         [
@@ -207,7 +207,7 @@ let peçagrafic = [
             [0, 0, 0, 0]
         ]
     ]
-    ]
+    
 ]
 
 
