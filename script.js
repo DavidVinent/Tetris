@@ -528,17 +528,12 @@ function inicia() {
             canço.pause()
         }
     })
-
-
     peça = new objPeça();
     inicialitzarTeclat()
     setInterval(function () {
         principal()
     }, 1000 / FPS);
-
-
 }
-
 function principal() {
 
     borrarCanvas();
@@ -546,9 +541,7 @@ function principal() {
     peça.caer();
     peça.dibuixa();
     dibuixaPuntuacio();
-
 }
-
 function borrarCanvas() {
     canvas.width = amplecanvas;
     canvas.height = altcanvas;
