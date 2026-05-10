@@ -231,31 +231,31 @@ let peçagrafic = [
 
     ], [
         [
-            [0, 1, 0, 0,],
-            [0, 1, 1, 0,],
-            [0, 0, 0, 0,],
+            [0, 0, 0, 1,],
+            [0, 0, 1, 1,],
+            [0, 0, 1, 0,],
             [0, 0, 0, 0,]
         ], [
 
-            [0, 1, 0, 0,],
-            [0, 1, 1, 0,],
             [0, 0, 0, 0,],
+            [0, 0, 1, 1,],
+            [0, 1, 1, 0,],
             [0, 0, 0, 0,]
 
         ], [
 
-            [0, 1, 0, 0,],
-            [0, 1, 1, 0,],
             [0, 0, 0, 0,],
-            [0, 0, 0, 0,]
+            [0, 0, 1, 0,],
+            [0, 0, 1, 1,],
+            [0, 0, 0, 1,]
 
 
 
 
         ], [
             [0, 1, 0, 0,],
+            [0, 0, 1, 1,],
             [0, 1, 1, 0,],
-            [0, 0, 0, 0,],
             [0, 0, 0, 0,]
 
         ]
@@ -328,6 +328,12 @@ function dibuixaPuntuacio(){
     ctx.fillStyle = '#f5c97a';
     ctx.font = 'bold 18px Segoe UI';
     ctx.fillText('PUNTS: ' + punts, 10, 22);
+     let nivell = 1;
+    if (punts >= 100) nivell = 2;
+    if (punts >= 200) nivell = 3;
+    if (punts >= 400) nivell = 4;
+    if (punts >= 600) nivell = 5;
+    ctx.fillText('NIVELL: ' + nivell, 10, 44);
 }
 
 let objPeça = function () {
@@ -535,7 +541,11 @@ function inicia() {
     }, 1000 / FPS);
 }
 function principal() {
-
+ if (punts >= 100) retras = 35;
+    if (punts >= 200) retras = 25;
+    if (punts >= 400) retras = 15;
+    if (punts >= 600) retras = 8;
+    
     borrarCanvas();
     dibuixaTaulell();
     peça.caer();
