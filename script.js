@@ -9,11 +9,9 @@ let retras = 50;
 let contador = 0;
 let ampleTaulell = 10;
 let altTaulell = 20;
-let puntos = 0;
-
+let punts = 0;
 let ampleF = 40;
 let altF = 40;
-let canço = new Audio("sounds/canço.mp3");
 let taulell = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -314,6 +312,11 @@ function dibuixaTaulell() {
 
 
 }
+function dibuixaPuntuacio(){
+    ctxfillStyle = '#000000';
+    ctx.font = '20px Arial';
+    ctx.fillText('Punts: ' + punts, 10, 20);
+    
 
 let objPeça = function () {
     this.x = 0;
@@ -546,11 +549,6 @@ function borrarCanvas() {
     canvas.height = altcanvas;
 }
 
-function dibuixaPunts() {
-    
-    ctx.font = "20px Arial";
-    ctx.fillStyle = "#000000";
-    ctx.fillText("Puntos: " + puntos, 220, 30);
-}
+
 
 
