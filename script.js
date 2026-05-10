@@ -480,15 +480,6 @@ let objPeça = function () {
                 this.nova();
             }
 
-        
-
-
-
-
-
-
-
-
 
 
 function inicialitzarTeclat() {
@@ -519,7 +510,7 @@ function inicia() {
     canvas.style.width = amplecanvas;
     canvas.style.height = altcanvas;
 
-    let canço = new Audio("audio.mp3")
+    let canço = new Audio("audio1.mp3")
     document.getElementById("musica").addEventListener ("click", function () {
         canço.loop = true
         if(canço.paused){
