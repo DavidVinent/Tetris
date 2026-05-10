@@ -296,28 +296,39 @@ let peçagrafic = [
 
 
 ]
+  const COLORS = {
+    1: '#ff6eb4',  // S — hot pink
+    2: '#ffc94d',  // O — dorado disco
+    3: '#00e5c8',  // I — cian frío
+    4: '#ff7c3a',  // L — naranja ardiente
+    5: '#b06eff',  // J — violeta profundo
+    6: '#ff4f7b',  // T — fucsia
+    7: '#ffe44d',  // U — amarillo eléctrico
+};
+
+function getColor(val) {
+    return COLORS[val] || '#ffffff';
+}
 
 function dibuixaTaulell() {
-
     for (let py = 0; py < altTaulell; py++) {
         for (let px = 0; px <= ampleTaulell; px++) {
             if (taulell[py][px] != 0) {
-
-                ctx.fillStyle = '#000000';
-
-                ctx.fillRect((px - 1) * ampleF, (py - 4) * altF, ampleF, altF)
+                if (px == 0 || px == ampleTaulell) {
+                    ctx.fillStyle = '#2a0f3a'; 
+                } else {
+                    ctx.fillStyle = getColor(taulell[py][px]);
+                }
+                ctx.fillRect((px - 1) * ampleF, (py - 4) * altF, ampleF, altF);
             }
         }
     }
-
-
 }
 function dibuixaPuntuacio(){
-    ctx.fillStyle = '#000000';
-    ctx.font = '20px Arial';
-    ctx.fillText('Punts: ' + punts, 10, 20);
+    ctx.fillStyle = '#f5c97a';
+    ctx.font = 'bold 18px Segoe UI';
+    ctx.fillText('PUNTS: ' + punts, 10, 22);
 }
-    
 
 let objPeça = function () {
     this.x = 0;
@@ -382,30 +393,28 @@ let objPeça = function () {
 
         }
 
-        this.fixapeça = function () {
-            for (let py = 0; py < 4; py++) {
-                for (let px = 0; px < 4; px++) {
-                    if (peçagrafic[this.tipo][this.angle][py][px] != 0) {
-                        taulell[this.y + py][this.x + px] = peçagrafic[this.tipo][this.angle][py][px];
-                    }
-                }
+       this.fixapeça = function () {
+    for (let py = 0; py < 4; py++) {
+        for (let px = 0; px < 4; px++) {
+            if (peçagrafic[this.tipo][this.angle][py][px] != 0) {
+                taulell[this.y + py][this.x + px] = this.tipo + 1; 
             }
         }
+    }
+}
 
 
-        this.dibuixa = function () {
-            for (let py = 0; py < 4; py++) {
-                for (let px = 0; px < 4; px++) {
-                    if (peçagrafic[this.tipo][this.angle][py][px] != 0) {
-                        if (peçagrafic[this.tipo][this.angle][py][px] == 1) {
-                            ctx.fillStyle = "#000000";
-                        }
-                        ctx.fillRect((this.x + px - 1) * ampleF, (this.y + py - 4) * altF, ampleF, altF);
-                    }
-                }
+       this.dibuixa = function () {
+    
+    for (let py = 0; py < 4; py++) {
+        for (let px = 0; px < 4; px++) {
+            if (peçagrafic[this.tipo][this.angle][py][px] != 0) {
+                ctx.fillStyle = getColor(this.tipo + 1);
+                ctx.fillRect((this.x + px - 1) * ampleF, (this.y + py - 4) * altF, ampleF, altF);
             }
         }
-
+    }
+}
 
         this.caer = function () {
 
