@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-/* FONDO GENERAL */
+/* FONDO: warmth de vinilo, no frío azul */
 body {
-    background: radial-gradient(circle at 20% 20%, #1a1a2e, #0f0f1a 60%, #050509);
+    background: radial-gradient(ellipse at 30% 10%, #1e0a2e, #0d0612 55%, #1a0a00);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #cfcfe6;
+    color: #e8d5f5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,86 +17,76 @@ body {
     overflow: hidden;
 }
 
-/* CANVAS (TABLERO) */
+/* CANVAS: cabina de DJ, cristal ahumado con calor */
 #canvas {
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
-    
-    /* efecto cristal */
-    background: rgba(20, 20, 40, 0.6);
-    backdrop-filter: blur(10px);
-
-    /* glow suave */
-    box-shadow: 
-        0 0 20px rgba(0, 140, 255, 0.15),
-        inset 0 0 10px rgba(255,255,255,0.05);
-
-    transition: 0.3s ease;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 180, 80, 0.18);
+    background: rgba(18, 8, 28, 0.75);
+    backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 30px rgba(200, 80, 255, 0.12),
+        0 0 60px rgba(255, 120, 30, 0.08),
+        inset 0 0 12px rgba(255, 200, 100, 0.04);
+    transition: box-shadow 0.4s ease;
 }
 
-/* HOVER SUTIL */
 #canvas:hover {
-    box-shadow: 
-        0 0 30px rgba(0, 140, 255, 0.3),
-        inset 0 0 15px rgba(255,255,255,0.08);
+    box-shadow:
+        0 0 45px rgba(200, 80, 255, 0.22),
+        0 0 80px rgba(255, 120, 30, 0.14),
+        inset 0 0 18px rgba(255, 200, 100, 0.07);
 }
 
-/* BOTÓN */
+/* BOTÓN: etiqueta de disco de vinilo */
 #musica {
-    margin-top: 20px;
-    padding: 12px 28px;
+    margin-top: 22px;
+    padding: 12px 32px;
     border-radius: 999px;
-    border: none;
-
-    background: linear-gradient(135deg, #2a2a40, #1a1a2e);
-    color: #dcdcff;
-
-    font-size: 14px;
-    letter-spacing: 2px;
+    border: 1px solid rgba(255, 160, 60, 0.35);
+    background: linear-gradient(135deg, #2a0f3a, #1a0a00);
+    color: #f5c97a;
+    font-size: 13px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-
     cursor: pointer;
-
-    /* glow elegante */
-    box-shadow: 
-        0 0 10px rgba(0, 140, 255, 0.2),
-        inset 0 0 5px rgba(255,255,255,0.05);
-
-    transition: all 0.25s ease;
+    box-shadow:
+        0 0 14px rgba(255, 140, 40, 0.2),
+        inset 0 0 6px rgba(255, 180, 80, 0.06);
+    transition: all 0.3s ease;
 }
 
-/* HOVER BOTÓN */
 #musica:hover {
     transform: translateY(-2px);
-    box-shadow: 
-        0 0 20px rgba(0, 140, 255, 0.4),
-        inset 0 0 8px rgba(255,255,255,0.1);
+    background: linear-gradient(135deg, #3a1550, #2a1200);
+    color: #ffd990;
+    box-shadow:
+        0 0 28px rgba(255, 140, 40, 0.38),
+        0 0 10px rgba(200, 80, 255, 0.2),
+        inset 0 0 10px rgba(255, 200, 100, 0.1);
 }
 
-/* CLICK */
 #musica:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 }
 
-/* TEXTO PUNTOS */
+/* PUNTUACIÓN: neón cálido */
 p {
-    margin-top: 15px;
-    font-size: 18px;
-    color: #8a8aff;
-    opacity: 0.8;
+    margin-top: 14px;
+    font-size: 17px;
+    color: #e08cff;
+    opacity: 0.85;
+    letter-spacing: 1px;
 }
 
-/* EFECTO GRID SUTIL DE FONDO */
+/* GRID DE FONDO: surcos de vinilo */
 body::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-
+    background-image:
+        linear-gradient(rgba(255, 160, 80, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 160, 80, 0.025) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: -1;
 }
